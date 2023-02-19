@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>Welcome to iNeuron</h2>
+<div style="margin: 10px;">
+  <a href="/grabe-all">Click here to get data</a> &nbsp;&nbsp;
+  <a href="/create-table">Click here to create tables</a>
+</div>
+
+
+<table>
+  <tr>
+    <th>Course Name</th>
+    <th>Description</th>
+    <th>PDF Link</th>
+  </tr>
+
+  {% for i in result %}
+  <tr>
+    <td>{{ i['title'] }}</td>
+    <td>{{ i['course_description'] }}</td>
+    <td style="width: 150px;"><a href="static/pdf/{{ i['slug'] }}.pdf"> Click To Get PDF</a></td>
+  </tr>
+  {% endfor %}
+
+</body>
+</html>
+
